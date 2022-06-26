@@ -1,37 +1,71 @@
-## Welcome to GitHub Pages
+## Ch.1 概论
+- 自适应系统基本特点的理解，自适应信号处理的基本内涵。
+自适应信号处理是研究一类**结构可变**或**可调整**的系统，它可以通过与外界环境的接触来改善自身对信号处理的性能。通常这类系统是时变的非线性系统，可以自动适应信号传送变化的环境和要求。
 
-You can use the [editor on GitHub](https://github.com/devindang/devindang/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+- 自适应系统的评价指标有那些？
+  收敛速度，跟踪能力，稳定性，数值稳定性，算法结构，计算量，稳健性
+  ~~均方误差（MSE），信噪比（SNR），最大似然（ML），最小噪声方差（MV）~~
+## Ch.2 信号矩阵理论
+- 一个自适应系统，输入信号向量$X_k=S_k+N_k$，信噪比？最优权？如果噪声分量是白噪声，最优权是？
+$SNR_{out}=\frac{W^HR_SW}{W^HR_NW}$，最优权 $R_N^{-1}R_S$最大特征值$\lambda_{max}$对应的特征向量。白噪声：$R_N=\sigma^2I$，$W_{opt}$为$R_S/\sigma^2$最大特征值对应特征向量
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Ch.3 性能测量方法
+- 最小均方误差（MSE）的性能函数，最优解，最小均方误差。如果$X_k$和$d_k$统计独立，最优解是？物理意义？
+$\xi{W}=E(|d_k|^2)+W^HRW-2Re(W^TP)$
+$\nabla = \frac{\partial}{\partial w_k}[\xi(W)]=2RW-2P^*=0 \Rightarrow W_{opt}=R^{-1}P^*$
+$\xi(W)_{min}=E(|d_k|^2)+P^T R^{-1}RW_{opt}-2W_{opt}^TP=E(|d_k|^2)-P^TW_{opt}$
+若统计独立，$W_{opt}=0$，物理意义：输入信号与期望信号不相关，自适应系统不能从噪声中提取期望信号，从而把输入信号全部当噪声处理掉了。
 
-### Markdown
+## Ch.4 性能表面搜索
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- 最速下降法，牛顿法，迭代公式，算法收敛条件，优缺点，何时收敛特性相同？
+	- 最速下降法：
+	  $W_{k+1}=W_k -\mu \nabla_k$，负梯度方向
+	  $\nabla_k = \frac{\partial}{\partial w_k}\xi(w_k)=2RW_k-2P^*$
+	  $W_{k+1}=W_k-2\mu R W_k + 2\mu R W_{opt}=W_k-2\mu R(W_k-W_{opt})$
+	  $V=W-W_{opt} \Rightarrow V_{k+1}=(1-2\mu R)V_k=(QQ^H-2\mu Q\Lambda Q^H)V_k=Q(I-2\mu \Lambda)Q^HV_k$
+	  $Q^HV_{k+1}=(1-2\mu \Lambda)Q^HV_k$
+	  $V_{k+1}'=(1-2\mu\lambda)^k V_0 '$
+	  $|1-2\mu\lambda|<1\Rightarrow 0<\mu<\frac{1}{\lambda_{max}}$
+	  沿负梯度方向收敛，收敛速度慢，受特征值散度影响，计算量小。
+	
+	- 牛顿法：
+	  $W_{k+1}=W_k -\mu R^{-1}\nabla_k$，最优权方向
+	  $\nabla_k = \frac{\partial}{\partial w_k}\xi(w_k)=2RW_k-2P^*$
+	  $W_{k+1}=W_k-2\mu R^{-1}R W_k + 2\mu R^{-1}R W_{opt}=W_k-2\mu(W_k-W_{opt})$
+	  $V=W-W_{opt} \Rightarrow V_{k+1}=(1-2\mu )V_k$
+	  $Q^HV_{k+1}=(1-2\mu \Lambda)Q^HV_k$
+	  $V_{k+1}=(1-2\mu)^k V_0 $
+	  $|1-2\mu|<1\Rightarrow 0<\mu<1$
+	  沿最优权方向收敛，收敛速度快，不受特征值影响，计算量大。
+	  当初始值$W_0$位于椭圆族主轴时，二者收敛性相同，理由：牛顿法收敛方向指向最优权，最速下降法指向负梯度方向，故当收敛相同时，只有在椭圆族的主轴才可以。
 
-```markdown
-Syntax highlighted code block
+- 何时使用梯度搜索？
+二次性能表面的有关参数是未知的，即它的表达式无法得到，所讨论的信号为统计平稳过程，可以用一段时间内对系统输出的性能测量平均值，以此来测量和估计系统状态在性能表面上所处的位置。利用梯度来估计性能表面。而二次性能表面只具有全局最优点，因此最适用于梯度搜索。
 
-# Header 1
-## Header 2
-### Header 3
+- 微商法梯度估计，性能损失，扰动，超量均方误差，失调，步长（$\mu$）样本数（$N$）权向量扰动量（$\delta$）对性能的影响？
+	- 因权微扰而不停留在$\nu$所引起的均方误差的平均增量$\beta$**为性能损失**；
+	- 用最小均方误差归一化的性能损失，$P=\frac{\beta}{\xi_{min}}$为**扰动**，**产生原因**是为了测量梯度而人为的将权向量偏离而引起的自适应性能损失；
+	- 围绕着最优权向量的随机变化引起的相应的均方误差值的增加，这个增量的平均值就是**超量均方误差**，$excMSE=E[\xi_k-\xi_{min}]=E[V^HRV]$；
+	- 超量均方误差与最小均方误差的相对比值$M=\frac{excMSE}{\xi_{min}}$就是**失调**，**产生原因**是自适应系统本身所付出的代价，它是自适应能力所付出代价的归一化量度。
+	- N越大，得到的采样越多，对权向量的估计越准，权向量协方差，超量均方误差和失调量越小，收敛速度越慢。
+	- $\delta$越大，采样越分散，越能反映系统全貌，权向量协方差和超量均方误差越小，失调量越大
+	- $\mu$越小，对权向量估计越准，权向量协方差、超量均方误差和失调量越小，收敛速度越慢
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## Ch.5 基本自适应算法
 
-**Bold** and _Italic_ and `Code` text
+- LMS权值迭代公式，特点，收敛条件，三个常数
 
-[Link](url) and ![Image](src)
-```
+## Ch.6-9 后续内容
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- FIR IIR滤波器的优缺点，IIR滤波器使用输出误差综合时存在的问题？方程误差方法的优点？是否一定稳定？如何进一步处理？
+相比于FIR滤波器，IIR滤波器的频响特性要更好，但是存在极点，存在稳定性问题。使用输出误差综合，代价函数非凸，存在局部极点，不能保证全局最优，同时存在稳定性问题。使用方程误差方法，将递归滤波到非递归滤波，把一个IIR转化成两个FIR问题，解决了收敛性问题，自适应过程是稳定的，但是不能保证滤波器稳定，因为其极点并不能保证在单位圆内，解决办法是**每次迭代，检查稳定性**。
 
-### Jekyll Themes
+- 超分辨和高分辨的定义有何不同？
+天线和天线阵列的分辨力受到瑞丽准则的限制，即分辨率与波束宽度有关，波束宽度越宽，天线和天线阵列的分辨率就越低，高分辨根据波束主瓣宽度，或者天线孔径的宽度来调整分辨力；超分辨通过自适应的加权处理，偏离主方向的信号容易贝波束形成器调零，形成的波束变窄，获得超分辨效果。
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/devindang/devindang/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- 将梯度等于0作为收敛条件，其收敛条件是什么？
 
-### Support or Contact
+- 微商法$\mu，N，\delta$的影响
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
