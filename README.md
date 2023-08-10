@@ -1,4 +1,14 @@
 ### Hi there 👋
+- 😄 I'm devin.
+- 🔭 I’m currently studying in Xidian University for a master's degree.
+- 🌱 I’m currently learning Digital IC / Front End.
+- 💬 Ask me about ...
+  - Verilog HDL / VHDL
+  - Digital signal processing
+  - Communication theory
+  - Linux, Perl
+- 📫 Reach me at: balddevin@outlook.com
+
 
 <!--
 **devindang/devindang** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
