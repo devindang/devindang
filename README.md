@@ -3,8 +3,8 @@
 - 🌱 I’m currently learning Digital IC / Front End.
 - 📫 Reach me at: balddevin@outlook.com
 
-[![Devin's GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=github_dark#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
-[![Devin's GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
+[![Devin's GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=github_dark#gh-dark-mode-only)](https://github.com/devindang#gh-dark-mode-only)
+[![Devin's GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/devindang#gh-light-mode-only)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=devindang&layout=compact)
 
