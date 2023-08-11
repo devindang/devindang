@@ -8,8 +8,8 @@
 
 I' currently working at:
 
-[![Customized Card-Dark](https://github-readme-stats.vercel.app/api/pin?username=devindang\&repo=dv-cpu-rv\&title_color=58a6ff\&icon_color=4c8eda\&text_color=9f9f9f\&bg_color=0d1117#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
-[![Customized Card-Light](https://github-readme-stats.vercel.app/api/pin?username=devindang\&repo=dv-cpu-rv\&title_color=2f80ed\&icon_color=4e73f2\&text_color=434d58\&bg_color=fffefe#gh-light-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
+[![Customized Card-Dark](https://github-readme-stats.vercel.app/api/pin?username=devindang\&repo=dv-cpu-rv\&title_color=58a6ff\&icon_color=4c8eda\&text_color=9f9f9f\&bg_color=0d1117#gh-dark-mode-only)](https://github.com/devindang/dv-cpu-rv#gh-dark-mode-only)
+[![Customized Card-Light](https://github-readme-stats.vercel.app/api/pin?username=devindang\&repo=dv-cpu-rv\&title_color=2f80ed\&icon_color=4e73f2\&text_color=434d58\&bg_color=fffefe#gh-light-mode-only)](https://github.com/devindang/dv-cpu-rv#gh-light-mode-only)
 
 
 <!--
