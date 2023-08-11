@@ -1,14 +1,12 @@
 ### Hi there 👋
 - 😄 I'm devin.
-- 🔭 I’m currently studying in Xidian University for a master's degree.
 - 🌱 I’m currently learning Digital IC / Front End.
-- 💬 Ask me about ...
-  - Verilog HDL / VHDL
-  - Digital signal processing
-  - Communication theory
-  - Linux, Perl
 - 📫 Reach me at: balddevin@outlook.com
 
+[![Devin's GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=github_dark#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
+[![Devin's GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=devindang&layout=compact)
 
 <!--
 **devindang/devindang** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
