@@ -2,6 +2,7 @@
 - 😄 I'm devin.
 - 🌱 I’m currently learning Digital IC / Front End.
 - 📫 Reach me at: balddevin@outlook.com
+- 📝 Follow my cnblog: https://www.cnblogs.com/devindd
 
 [![Devin's GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true\&rank_icon=github&theme=github_dark#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
 [![Devin's GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=devindang&show_icons=true\&rank_icon=github&theme=default#gh-light-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
